@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import axios from 'axios'
 import Highcharts from 'highcharts'
@@ -72,11 +72,68 @@ function App() {
         }
       })
       .then((res)=>{
-        console.log(res.data)
-        setPopulationData([...populationData,{prefCode:e.targetvalue,data:res.data.result.data}])
+        console.log(res.data.result.data)
+        setPopulationData([...populationData,{prefCode:e.target.value,data:res.data.result.data}])
       })
   }
-  
+
+  const series: Highcharts.SeriesOptionsType[] = [];
+  const valueList:number[] = [] 
+
+  if(populationData.length!==0){
+  populationData[0].data[0].data.forEach(key=>
+      valueList.push(key.value),
+      series.push({
+        name:"総人口",
+        type:"line",
+        data:valueList
+      })
+  )
+  console.log(populationData[0].data[0])
+  } 
+
+  const options: Highcharts.Options ={
+    title:{
+      text:"都道府県別人口推移"
+    },
+    yAxis:{
+      title:{
+        text:"人口数"
+      }
+    },
+
+    xAxis: {
+      accessibility:{
+        //rangeDescription: `Range: ${populationData[0].data[0].data[0].year} to ${populationData[0].data[0].data.slice(-1)[0].year}`
+        rangeDescription: `Range: 1980 to 2045`
+      }
+    },
+
+    legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+      series: {
+          label: {
+              connectorAllowed: false
+          },
+          pointStart: 2010
+      }
+    },
+
+    series:
+      populationData.length === 0
+      ? [{type:"line",
+          name: "総人口",
+          data: []}]
+      : series    
+    }
+
+
+  const chartComponentRef = useRef<HighchartsReact.RefObject>(null)
   
   return <div className="App">
     <div className="header">
@@ -97,10 +154,15 @@ function App() {
         </form>
       </div>
       <div className="gragh">
-        <></>
+        <HighchartsReact
+      highcharts={Highcharts}
+      options={options}
+      ref={chartComponentRef}/>
       </div>
     </div>
   </div>;
 }
 
 export default App;
+
+
