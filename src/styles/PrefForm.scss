@@ -1,0 +1,10 @@
+.prefecture-form {
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    .input-item {
+      display: inline-block;
+      width: 10%;
+    }
+  }
+}
