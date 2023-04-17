@@ -1,6 +1,7 @@
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import React, { useRef, useState } from 'react'
+import '../styles/Gragh.scss'
 
 type Props = {
   populationData: PopulationData[]
@@ -134,7 +135,7 @@ const Gragh = (props: Props) => {
       <form>
         {categoryList.map((item, index) => {
           return (
-            <div key={item}>
+            <div className="category-item" key={item}>
               <input
                 id={item}
                 type="radio"
