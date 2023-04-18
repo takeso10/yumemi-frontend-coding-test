@@ -73,11 +73,13 @@ const Gragh = (props: Props) => {
   const series: Highcharts.SeriesOptionsType[] = []
   const yearList: string[] = []
   if (props.populationData.length !== 0) {
+    props.populationData[0].data[0].data.forEach((pref) => {
+      yearList.push(String(pref.year))
+    })
     props.populationData.forEach((prefData) => {
       const valueList: number[] = []
       prefData.data[category.index].data.forEach((obj) => {
         valueList.push(obj.value)
-        yearList.push(String(obj.year))
       })
       const prefName = props.prefecturesList[prefData.prefCode - 1].prefName //都道府県一覧データから都道府県名を取得
       series.push({
@@ -86,7 +88,6 @@ const Gragh = (props: Props) => {
         data: valueList,
       })
     })
-    console.log(props.populationData[0].data[0])
   }
 
   //HighChartsの設定
@@ -96,7 +97,7 @@ const Gragh = (props: Props) => {
     },
     yAxis: {
       title: {
-        text: '人口数',
+        text: '人口数(人)',
       },
     },
 
@@ -118,7 +119,6 @@ const Gragh = (props: Props) => {
         label: {
           connectorAllowed: false,
         },
-        pointStart: 2010,
       },
     },
 
@@ -126,6 +126,23 @@ const Gragh = (props: Props) => {
       props.populationData.length === 0
         ? [{ type: 'line', name: category.name, data: [] }]
         : series,
+
+    responsive: {
+      rules: [
+        {
+          condition: {
+            maxWidth: 340,
+          },
+          chartOptions: {
+            legend: {
+              layout: 'horizontal',
+              align: 'center',
+              verticalAlign: 'bottom',
+            },
+          },
+        },
+      ],
+    },
   }
 
   const chartComponentRef = useRef<HighchartsReact.RefObject>(null)
@@ -149,11 +166,14 @@ const Gragh = (props: Props) => {
           )
         })}
       </form>
-      <HighchartsReact
-        highcharts={Highcharts}
-        options={options}
-        ref={chartComponentRef}
-      />
+      <div className="gragh-item">
+        <HighchartsReact
+          highcharts={Highcharts}
+          options={options}
+          ref={chartComponentRef}
+          className="highcharts"
+        />
+      </div>
     </div>
   )
 }
