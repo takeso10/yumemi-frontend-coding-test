@@ -4,3 +4,13 @@
     border-bottom: 2px solid rgb(88, 150, 231);
   }
 }
+
+@media screen and (max-width:1024px){
+  .App {
+    padding: 5px 10px 5px 10px;
+    .header {
+      border-bottom: 2px solid rgb(88, 150, 231);
+      text-align:center;
+    }
+  }
+}

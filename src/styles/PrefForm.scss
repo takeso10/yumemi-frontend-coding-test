@@ -1,10 +1,123 @@
 .prefecture-form {
+  border-bottom:1px solid rgb(88, 150, 231);
+  padding-bottom:15px;
+  h2 {
+    border-bottom: 2px solid rgb(88, 150, 231);
+    width: 20%;
+  }
   form {
     display: flex;
     flex-wrap: wrap;
     .input-item {
       display: inline-block;
       width: 10%;
+      margin-bottom: 10px;
+      input[type='checkbox'] {
+        margin: 0;
+        padding: 0;
+        background: none;
+        border: none;
+        border-radius: 0;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      input[type='checkbox'] {
+        cursor: pointer;
+        padding-left: 30px;
+        vertical-align: middle;
+        position: relative;
+      }
+
+      input[type='checkbox']::before,
+      input[type='checkbox']::after {
+        content: '';
+        display: block;
+        position: absolute;
+      }
+
+      input[type='checkbox']::before {
+        background-color: #fff;
+        border-radius: 0%;
+        border: 1px solid rgb(88, 150, 231);
+        width: 20px;
+        height: 20px;
+        transform: translateY(-50%);
+        top: 50%;
+        left: 5px;
+      }
+
+      input[type='checkbox']::after {
+        border-bottom: 3px solid rgb(88, 150, 231);
+        border-left: 3px solid rgb(88, 150, 231);
+        opacity: 0;
+        height: 6px;
+        width: 11px;
+        transform: rotate(-45deg);
+        top: -7px;
+        left: 10px;
+      }
+
+      input[type='checkbox']:checked::after {
+        opacity: 1;
+      }
     }
   }
 }
+
+@media screen and (max-width:1024px){
+  .prefecture-form{
+    h2{
+      width:30%;
+    }
+    form{
+      .input-item{
+        width:20%;
+        label{
+          font-size:18px;
+        }
+        input[type='checkbox']::before {
+          width: 18px;
+          height: 18px;
+          left: 3px;
+        }
+        input[type='checkbox']::after {
+          height: 6px;
+          width: 12px;
+          top: -7px;
+          left: 6px;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width:600px){
+  .prefecture-form{
+    h2{
+      width:50%;
+    }
+    form{
+      .input-item{
+        width:25%;
+        label{
+          font-size:12px;
+        }
+        input[type='checkbox']::before {
+          width: 15px;
+          height: 15px;
+          left: 3px;
+        }
+        input[type='checkbox']::after {
+          height: 4px;
+          width: 9px;
+          top: -5px;
+          left: 6px;
+        }
+      }
+    }
+  }
+}
+
