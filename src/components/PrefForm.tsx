@@ -7,10 +7,6 @@ type Props = {
   errorMessage: string
 }
 
-type PrefData = {
-  prefCode: number
-  prefName: string
-}
 
 const PrefForm = (props: Props) => {
   return (
