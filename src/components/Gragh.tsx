@@ -8,44 +8,6 @@ type Props = {
   prefecturesList: PrefData[]
 }
 
-type PrefData = {
-  prefCode: number
-  prefName: string
-}
-
-type PopulationData = {
-  prefCode: number
-  data: [
-    {
-      label: string
-      data: [YearData1]
-    },
-    {
-      label: string
-      data: [YearData2]
-    },
-    {
-      label: string
-      data: [YearData2]
-    },
-    {
-      label: string
-      data: [YearData2]
-    }
-  ]
-}
-
-type YearData1 = {
-  year: number
-  value: number
-}
-
-type YearData2 = {
-  year: number
-  value: number
-  rate: number
-}
-
 type category = {
   index: number
   name: string
@@ -73,7 +35,7 @@ const Gragh = (props: Props) => {
   const series: Highcharts.SeriesOptionsType[] = []
   const yearList: string[] = []
   if (props.populationData.length !== 0) {
-    props.populationData[0].data[0].data.forEach((pref) => {
+    props.populationData[0].data[0].data.forEach((pref) => { //年度の配列を作るために、総人口データを使う
       yearList.push(String(pref.year))
     })
     props.populationData.forEach((prefData) => {
