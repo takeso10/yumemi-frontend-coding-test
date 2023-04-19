@@ -2,44 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import PrefForm from './PrefForm'
 import Gragh from './Gragh'
-
-type PrefData = {
-  prefCode: number
-  prefName: string
-}
-
-type PopulationData = {
-  prefCode: number
-  data: [
-    {
-      label: string
-      data: [YearData1]
-    },
-    {
-      label: string
-      data: [YearData2]
-    },
-    {
-      label: string
-      data: [YearData2]
-    },
-    {
-      label: string
-      data: [YearData2]
-    }
-  ]
-}
-
-type YearData1 = {
-  year: number
-  value: number
-}
-
-type YearData2 = {
-  year: number
-  value: number
-  rate: number
-}
+import { apiUrl, apiKey } from '../const'
 
 const Main = () => {
   const [prefecturesList, setPrefecturesList] = useState<PrefData[]>([])
@@ -49,9 +12,9 @@ const Main = () => {
   useEffect(() => {
     //[都道府県一覧」APIから都道府県の情報を取得
     axios
-      .get('https://opendata.resas-portal.go.jp/api/v1/prefectures', {
+      .get(`${apiUrl}prefectures`, {
         headers: {
-          'X-API-KEY': 'l0IqsxcC0V9h8SzOvylx2WMUOK8vOhFO33pIUfJT',
+          'X-API-KEY': apiKey,
           'Content-Type': 'application/json;charset=UTF-8',
         },
       })
@@ -68,10 +31,10 @@ const Main = () => {
     e.target.checked //チェックされた時
       ? axios
           .get(
-            `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${e.target.value}`,
+            `${apiUrl}population/composition/perYear?cityCode=-&prefCode=${e.target.value}`,
             {
               headers: {
-                'X-API-KEY': 'l0IqsxcC0V9h8SzOvylx2WMUOK8vOhFO33pIUfJT',
+                'X-API-KEY': apiKey,
                 'Content-Type': 'application/json;charset=UTF-8',
               },
             }
