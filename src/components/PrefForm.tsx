@@ -7,7 +7,6 @@ type Props = {
   errorMessage: string
 }
 
-
 const PrefForm = (props: Props) => {
   return (
     <div className="prefecture-form">
