@@ -63,14 +63,13 @@
   }
 }
 
-@media screen and (max-width: 1024px ){
-  .gragh{
-    form{
-
-      .category-item{
-        padding-left:10px;
-        label{
-          font-size:18px;
+@media screen and (max-width: 1024px) {
+  .gragh {
+    form {
+      .category-item {
+        padding-left: 10px;
+        label {
+          font-size: 18px;
         }
         input[type='radio']::before {
           width: 18px;
@@ -87,14 +86,14 @@
   }
 }
 
-@media screen and (max-width:600px){
-  .gragh{
-    form{
+@media screen and (max-width: 600px) {
+  .gragh {
+    form {
       margin: 15px auto;
-      .category-item{
+      .category-item {
         padding-left: 10px;
-        label{
-          font-size:12px;
+        label {
+          font-size: 12px;
         }
         input[type='radio'] {
           padding-left: 25px;

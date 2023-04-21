@@ -1,6 +1,6 @@
 .prefecture-form {
-  border-bottom:1px solid rgb(88, 150, 231);
-  padding-bottom:15px;
+  border-bottom: 1px solid rgb(88, 150, 231);
+  padding-bottom: 15px;
   h2 {
     border-bottom: 2px solid rgb(88, 150, 231);
     width: 20%;
@@ -66,16 +66,16 @@
   }
 }
 
-@media screen and (max-width:1024px){
-  .prefecture-form{
-    h2{
-      width:30%;
+@media screen and (max-width: 1024px) {
+  .prefecture-form {
+    h2 {
+      width: 30%;
     }
-    form{
-      .input-item{
-        width:20%;
-        label{
-          font-size:18px;
+    form {
+      .input-item {
+        width: 20%;
+        label {
+          font-size: 18px;
         }
         input[type='checkbox']::before {
           width: 18px;
@@ -93,17 +93,16 @@
   }
 }
 
-
-@media screen and (max-width:600px){
-  .prefecture-form{
-    h2{
-      width:50%;
+@media screen and (max-width: 600px) {
+  .prefecture-form {
+    h2 {
+      width: 50%;
     }
-    form{
-      .input-item{
-        width:25%;
-        label{
-          font-size:12px;
+    form {
+      .input-item {
+        width: 25%;
+        label {
+          font-size: 12px;
         }
         input[type='checkbox']::before {
           width: 15px;
@@ -120,4 +119,3 @@
     }
   }
 }
-

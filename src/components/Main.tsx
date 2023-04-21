@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import PrefForm from './PrefForm'
-import Gragh from './Gragh'
+import Graph from './Graph'
 import { apiUrl, apiKey } from '../const'
 
 const Main = () => {
@@ -61,7 +61,7 @@ const Main = () => {
         onChange={onChangePref}
         errorMessage={errorMessage}
       />
-      <Gragh
+      <Graph
         populationData={populationData}
         prefecturesList={prefecturesList}
       />
