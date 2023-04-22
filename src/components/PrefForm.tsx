@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/PrefForm.scss'
 
+
 type Props = {
   prefecturesList: PrefData[]
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
