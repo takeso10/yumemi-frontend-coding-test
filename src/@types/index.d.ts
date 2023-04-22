@@ -2,8 +2,7 @@ type PrefData = {
   prefCode: number
   prefName: string
 }
-
-
+ 
 type PopulationData = {
   prefCode: number
   data: [
