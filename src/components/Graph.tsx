@@ -17,7 +17,7 @@ const Graph = (props: Props) => {
   const [category, setCategory] = useState<category>({
     index: 0,
     name: '総人口',
-  })
+  })//初期値として総人口を選択
 
   const categoryList: string[] = [
     '総人口',
@@ -44,7 +44,7 @@ const Graph = (props: Props) => {
       prefData.data[category.index].data.forEach((obj) => {
         valueList.push(obj.value)
       })
-      const prefName = props.prefecturesList[prefData.prefCode - 1].prefName //都道府県一覧データから都道府県名を取得
+      const prefName = props.prefecturesList[prefData.prefCode - 1].prefName //都道府県一覧データから都道府県名を取得、都道府県コードとindexが1ずれているため-1をしている
       series.push({
         name: prefName,
         type: 'line',
