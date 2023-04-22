@@ -19,5 +19,5 @@
       "*": ["./@types/*"]
     }
   },
-  "include": ["cypress/*/*.ts"]
+  "include": ["src", "cypress/*/*.ts"]
 }
