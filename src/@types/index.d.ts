@@ -3,6 +3,7 @@ type PrefData = {
   prefName: string
 }
 
+
 type PopulationData = {
   prefCode: number
   data: [
