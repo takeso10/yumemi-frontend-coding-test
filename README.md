@@ -2,6 +2,16 @@
 
 公開URL：https://yumemi-frontend-coding-test-wheat.vercel.app/
 
+API:https://opendata.resas-portal.go.jp/docs/api/v1/index.html
+
+##参考記事
+Vercel:https://zenn.dev/tbsten/books/c6544795e6b36b/viewer/0a21a6
+e2etest:https://docs.cypress.io/guides/overview/why-cypress
+Highcharts:https://www.highcharts.com/blog/tutorials/highcharts-wrapper-for-react-101/
+
+総作業時間：約20時間
+
+
 ### `npm start`
 
 Runs the app in the development mode.\
