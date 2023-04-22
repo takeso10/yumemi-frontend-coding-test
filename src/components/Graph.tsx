@@ -17,7 +17,7 @@ const Graph = (props: Props) => {
   const [category, setCategory] = useState<category>({
     index: 0,
     name: '総人口',
-  })//初期値として総人口を選択
+  }) //初期値として総人口を選択
 
   const categoryList: string[] = [
     '総人口',
