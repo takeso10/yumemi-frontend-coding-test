@@ -7,4 +7,5 @@ describe('template spec', () => {
     cy.get('[id="年少人口"]').check({ force: true })
     cy.get('.highcharts-title').should('have.text', '都道府県別年少人口データ')
   })
+  
 })
