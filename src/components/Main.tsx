@@ -4,6 +4,7 @@ import PrefForm from './PrefForm'
 import Graph from './Graph'
 import { apiUrl, apiKey } from '../const'
 
+
 const Main = () => {
   const [prefecturesList, setPrefecturesList] = useState<PrefData[]>([])
   const [populationData, setPopulationData] = useState<PopulationData[]>([])
