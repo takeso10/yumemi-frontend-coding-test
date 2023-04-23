@@ -8,29 +8,29 @@ type PopulationData = {
   data: [
     {
       label: string
-      data: [YearData1]
+      data: [PopulationItem]
     },
     {
       label: string
-      data: [YearData2]
+      data: [PopulationCategorizedItem]
     },
     {
       label: string
-      data: [YearData2]
+      data: [PopulationCategorizedItem]
     },
     {
       label: string
-      data: [YearData2]
+      data: [PopulationCategorizedItem]
     }
   ]
 }
 
-type YearData1 = {
+type PopulationItem = {
   year: number
   value: number
 }
 
-type YearData2 = {
+type PopulationCategorizedItem = {
   year: number
   value: number
   rate: number
