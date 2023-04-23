@@ -65,6 +65,7 @@ const Main = () => {
           )
         ) //チェックが外されたとき、populationData配列から削除
   }
+  
   return (
     <div className="main">
       <PrefForm
