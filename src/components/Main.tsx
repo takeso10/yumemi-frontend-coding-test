@@ -9,8 +9,8 @@ const Main = () => {
   const [populationData, setPopulationData] = useState<PopulationData[]>([])
   const [errorMessage, setErrorMessage] = useState<string>('')
 
-  useEffect(() => {
-    //[都道府県一覧」APIから都道府県の情報を取得
+  //[都道府県一覧」を取得する処理
+  const getPrefecturesAPI = () => {
     axios
       .get(`${apiUrl}prefectures`, {
         headers: {
@@ -20,34 +20,45 @@ const Main = () => {
       })
       .then((res) => {
         setPrefecturesList(res.data.result)
+        console.log(res.data)
       })
       .catch((err) => {
         setErrorMessage(`都道府県データの取得に失敗しました。${err}`)
       })
+  }
+
+  //人口データを取得するAPI処理
+  const getPopulationDataAPI = (value: string) => {
+    axios
+      .get(
+        `${apiUrl}population/composition/perYear?cityCode=-&prefCode=${value}`,
+        {
+          headers: {
+            'X-API-KEY': apiKey,
+            'Content-Type': 'application/json;charset=UTF-8',
+          },
+        }
+      )
+      .then((res) => {
+        setPopulationData([
+          ...populationData,
+          { prefCode: Number(value), data: res.data.result.data },
+        ]) //県ごとのデータをpopulationData配列に入れる
+      })
+      .catch((err) => {
+        setErrorMessage(`都道府県別人口データの取得に失敗しました。${err}`)
+      })
+  }
+
+  //[都道府県一覧」APIから都道府県の情報を取得
+  useEffect(() => {
+    getPrefecturesAPI()
   }, [])
 
   //チェックされた都道府県の人口データをAPIで取得
   const onChangePref = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.checked //チェックされた時
-      ? axios
-          .get(
-            `${apiUrl}population/composition/perYear?cityCode=-&prefCode=${e.target.value}`,
-            {
-              headers: {
-                'X-API-KEY': apiKey,
-                'Content-Type': 'application/json;charset=UTF-8',
-              },
-            }
-          )
-          .then((res) => {
-            setPopulationData([
-              ...populationData,
-              { prefCode: Number(e.target.value), data: res.data.result.data },
-            ]) //県ごとのデータをpopulationData配列に入れる
-          })
-          .catch((err) => {
-            setErrorMessage(`都道府県別人口データの取得に失敗しました。${err}`)
-          })
+      ? getPopulationDataAPI(e.target.value)
       : setPopulationData(
           populationData.filter(
             (data) => data.prefCode !== Number(e.target.value)
