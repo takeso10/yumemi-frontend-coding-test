@@ -20,7 +20,6 @@ const Main = () => {
       })
       .then((res) => {
         setPrefecturesList(res.data.result)
-        console.log(res.data)
       })
       .catch((err) => {
         setErrorMessage(`都道府県データの取得に失敗しました。${err}`)
@@ -65,7 +64,7 @@ const Main = () => {
           )
         ) //チェックが外されたとき、populationData配列から削除
   }
-  
+
   return (
     <div className="main">
       <PrefForm
