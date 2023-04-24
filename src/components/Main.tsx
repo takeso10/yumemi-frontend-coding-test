@@ -4,14 +4,13 @@ import Graph from './Graph'
 import { apiKey, apiUrl } from '../const'
 import axios from 'axios'
 import usePrefecturesAPI from '../hooks/getPrefAPI'
-import usePopulationDataAPI from '../hooks/getPopulationDataAPI'
 
 const Main = () => {
   const [populationData, setPopulationData] = useState<PopulationData[]>([])
 
   //都道府県一覧を取得
   const prefectures = usePrefecturesAPI()
-  
+
   //人口データを取得するAPI処理
   const getPopulationDataAPI = (value: string) => {
     axios
