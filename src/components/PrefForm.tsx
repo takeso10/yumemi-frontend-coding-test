@@ -4,13 +4,11 @@ import '../styles/PrefForm.scss'
 type Props = {
   prefecturesList: PrefData[]
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  errorMessage: string
 }
 
 const PrefForm = (props: Props) => {
   return (
     <div className="prefecture-form">
-      <p>{props.errorMessage}</p>
       <h2>都道府県一覧</h2>
       <form>
         {props.prefecturesList.map((item) => {
