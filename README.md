@@ -34,8 +34,6 @@ REACT_APP_API_KEY = l0IqsxcC0V9h8SzOvylx2WMUOK8vOhFO33pIUfJT 　利用するた�
 ・ローカル環境でのサーバー起動
 ・http://localhost:3000/
 
-### `npm test`
-
 ### `npm run build`
 
 ・アプリを build し、./build フォルダに生成する。
