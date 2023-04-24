@@ -22,7 +22,7 @@ Vercel:https://zenn.dev/tbsten/books/c6544795e6b36b/viewer/0a21a6
 cypress:https://docs.cypress.io/guides/overview/why-cypress
 Highcharts:https://www.highcharts.com/blog/tutorials/highcharts-wrapper-for-react-101/
 
-総作業時間：約 30 時間
+総作業時間：約 35 時間
 
 ## 環境変数
 
