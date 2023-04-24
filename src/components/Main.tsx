@@ -39,7 +39,6 @@ const Main = () => {
     if (e.target.checked) {
       //チェックされた時
       getPopulationDataAPI(e.target.value)
-      //setPopulationData(usePopulationDataAPI(e.target.value))
     } else {
       setPopulationData(
         populationData.filter(
