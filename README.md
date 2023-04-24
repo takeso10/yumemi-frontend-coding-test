@@ -26,8 +26,8 @@ Highcharts:https://www.highcharts.com/blog/tutorials/highcharts-wrapper-for-reac
 
 ## 環境変数
 
-REACT_APP_API_URL = https://opendata.resas-portal.go.jp/api/v1/ 　 RESASAPI の URL  
-REACT_APP_API_KEY = l0IqsxcC0V9h8SzOvylx2WMUOK8vOhFO33pIUfJT 　利用するために必要な API キー
+REACT_APP_API_URL  RESASAPI の URL  
+REACT_APP_API_KEY  利用するために必要な API キー
 
 ### `npm start`
 
@@ -40,7 +40,7 @@ REACT_APP_API_KEY = l0IqsxcC0V9h8SzOvylx2WMUOK8vOhFO33pIUfJT 　利用するた�
 
 ### `npm run cypresss:open`
 
-・e2e テスト
+・e2eテストを行う
 
 ### `npm run fix`
 
