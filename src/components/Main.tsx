@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import PrefForm from './PrefForm'
 import Graph from './Graph'
-import { apiKey, apiUrl } from '../const'
-import axios from 'axios'
 import usePrefecturesAPI from '../hooks/getPrefAPI'
+import usePopulationDataAPI from '../hooks/getPopulationAPI'
 
 const Main = () => {
   const [populationData, setPopulationData] = useState<PopulationData[]>([])
@@ -11,34 +10,14 @@ const Main = () => {
   //都道府県一覧を取得
   const prefectures = usePrefecturesAPI()
 
-  //人口データを取得するAPI処理
-  const getPopulationDataAPI = (value: string) => {
-    axios
-      .get(
-        `${apiUrl}population/composition/perYear?cityCode=-&prefCode=${value}`,
-        {
-          headers: {
-            'X-API-KEY': apiKey,
-            'Content-Type': 'application/json;charset=UTF-8',
-          },
-        }
-      )
-      .then((res) => {
-        setPopulationData([
-          ...populationData,
-          { prefCode: Number(value), data: res.data.result.data },
-        ]) //県ごとのデータをpopulationData配列に入れる
-      })
-      .catch((err) => {
-        alert(err)
-      })
-  }
-
   //チェックされた都道府県の人口データをAPIで取得
-  const onChangePref = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangePref = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       //チェックされた時
-      getPopulationDataAPI(e.target.value)
+      const data = await usePopulationDataAPI(e.target.value)
+      if (data !== undefined) {
+        setPopulationData([...populationData, data])
+      }
     } else {
       setPopulationData(
         populationData.filter(
