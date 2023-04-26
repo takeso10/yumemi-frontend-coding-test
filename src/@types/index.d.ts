@@ -8,19 +8,19 @@ type PopulationData = {
   data: [
     {
       label: string
-      data: [PopulationItem]
+      data: PopulationItem[]
     },
     {
       label: string
-      data: [PopulationCategorizedItem]
+      data: PopulationCategorizedItem[]
     },
     {
       label: string
-      data: [PopulationCategorizedItem]
+      data: PopulationCategorizedItem[]
     },
     {
       label: string
-      data: [PopulationCategorizedItem]
+      data: PopulationCategorizedItem[]
     }
   ]
 }
