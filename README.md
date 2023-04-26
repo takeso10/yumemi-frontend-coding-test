@@ -27,7 +27,7 @@ Highcharts:https://www.highcharts.com/blog/tutorials/highcharts-wrapper-for-reac
 ## 環境変数
 
 REACT_APP_API_URL：RESASAPI の URL  
-REACT_APP_API_KEY：利用するために必要なAPIキー
+REACT_APP_API_KEY ：利用するために必要なAPIキー
 
 ### `npm start`
 
