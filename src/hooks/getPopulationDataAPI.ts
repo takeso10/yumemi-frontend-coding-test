@@ -12,7 +12,6 @@ const usePopulationDataAPI = async (value: string) => {
       },
     }
   )
-  console.log(response)
   const population = response.data.result.data
   return { prefCode: Number(value), data: population }
 }

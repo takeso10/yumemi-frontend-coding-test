@@ -19,6 +19,7 @@ const PrefForm = (props: Props) => {
                 type="checkbox"
                 value={item.prefCode}
                 onChange={props.onChange}
+                onDoubleClick={(e) => e.preventDefault()}
               />
               <label htmlFor={item.prefName}>{item.prefName}</label>
             </div>

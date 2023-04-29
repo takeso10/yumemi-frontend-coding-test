@@ -14,7 +14,7 @@ const Main = () => {
   const onChangePref = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       //チェックされた時
-      const data:PopulationData = await usePopulationDataAPI(e.target.value)
+      const data: PopulationData = await usePopulationDataAPI(e.target.value)
       if (data !== undefined) {
         setPopulationData([...populationData, data])
       }

@@ -12,7 +12,6 @@
         background: none;
         border: none;
         border-radius: 0;
-        outline: none;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -22,6 +21,9 @@
         padding-left: 30px;
         vertical-align: middle;
         position: relative;
+      }
+      input[type='radio']:focus:before {
+        border: 2px solid rgb(88, 150, 231);
       }
 
       input[type='radio']::before,
@@ -46,10 +48,10 @@
         border: 1px solid rgb(88, 150, 231);
         border-radius: 50%;
         opacity: 0;
-        height: 16px;
-        width: 16px;
+        height: 14px;
+        width: 14px;
         background-color: rgb(88, 150, 231);
-        left: 7px;
+        left: 9px;
       }
 
       input[type='radio']:checked::after {

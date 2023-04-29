@@ -19,7 +19,6 @@
         background: none;
         border: none;
         border-radius: 0;
-        outline: none;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -30,7 +29,9 @@
         vertical-align: middle;
         position: relative;
       }
-
+      input[type='checkbox']:focus::before {
+        border: 2px solid rgb(88, 150, 231);
+      }
       input[type='checkbox']::before,
       input[type='checkbox']::after {
         content: '';
