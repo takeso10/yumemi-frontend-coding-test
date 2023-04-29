@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PrefForm from './PrefForm'
 import Graph from './Graph'
 import usePrefecturesAPI from '../hooks/getPrefAPI'
-import usePopulationDataAPI from '../hooks/getPopulationAPI'
+import usePopulationDataAPI from '../hooks/getPopulationDataAPI'
 
 const Main = () => {
   const [populationData, setPopulationData] = useState<PopulationData[]>([])
@@ -14,7 +14,7 @@ const Main = () => {
   const onChangePref = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       //チェックされた時
-      const data = await usePopulationDataAPI(e.target.value)
+      const data:PopulationData = await usePopulationDataAPI(e.target.value)
       if (data !== undefined) {
         setPopulationData([...populationData, data])
       }
