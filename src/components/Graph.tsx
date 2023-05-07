@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react'
 import '../styles/Graph.scss'
 
 type Props = {
-  populationData: PopulationData[]
+  populationDataList: PopulationData[]
   prefecturesList: PrefData[]
 }
 
@@ -35,12 +35,12 @@ const Graph = (props: Props) => {
   //Highchartsグラフの値をリストして作成
   const series: Highcharts.SeriesOptionsType[] = []
   const yearList: string[] = []
-  if (props.populationData.length !== 0) {
-    props.populationData[0].data[0].data.forEach((pref) => {
+  if (props.populationDataList.length !== 0) {
+    props.populationDataList[0].data[0].data.forEach((pref) => {
       //年度の配列を作るために、総人口データを使う
       yearList.push(String(pref.year))
     })
-    props.populationData.forEach((prefData) => {
+    props.populationDataList.forEach((prefData) => {
       const valueList: number[] = []
       prefData.data[category.index].data.forEach((obj) => {
         valueList.push(obj.value)
@@ -87,7 +87,7 @@ const Graph = (props: Props) => {
     },
 
     series:
-      props.populationData.length === 0
+      props.populationDataList.length === 0
         ? [{ type: 'line', name: category.name, data: [] }]
         : series,
 
