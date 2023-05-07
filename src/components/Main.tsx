@@ -16,10 +16,12 @@ const Main = () => {
   const onChangePref = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       //チェックされた時
+      e.target.disabled = true //データ取得が終了し、dataをセットするまで、checkboxを無効化
       const data: PopulationData = await getPopulationDataAPI(e.target.value)
       if (data !== undefined) {
         setPopulationDataList([...populationDataList, data])
       }
+      e.target.disabled = false //checkboxを有効化
     } else {
       setPopulationDataList(
         populationDataList.filter(
