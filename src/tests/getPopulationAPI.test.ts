@@ -1,5 +1,5 @@
 import axios from 'axios'
-import usePopulationDataAPI from '../hooks/getPopulationDataAPI'
+import usePopulationDataAPI from '../repositories/getPopulationDataAPI'
 import { apiKey, apiUrl } from '../const'
 
 jest.mock('axios')
