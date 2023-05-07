@@ -45,3 +45,7 @@ REACT_APP_API_KEY ：利用するために必要な API キー
 ### `npm run fix`
 
 ・ESlint,prettier を起動し、修正する。
+
+### `npm run test`
+
+・Jest を起動し、ユニットテストを行う。
